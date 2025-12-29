@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/essencepartagee.github.io/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=essencepartagee.github.io/livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>The Journey Into Market Microstructure: What We Discovered About Trading Systems | Theoretical Explorations</title>
+<meta name="keywords" content="trading, quantitative-analysis, machine-learning, PCA, market-microstructure">
+<meta name="description" content="Starting with a 33% win rate MA crossover strategy on gold, this research revealed something unexpected about how markets actually work.">
+<meta name="author" content="Chris. M">
+<link rel="canonical" href="http://localhost:1313/essencepartagee.github.io/posts/market-microstructure-journey/">
+<link crossorigin="anonymous" href="/essencepartagee.github.io/assets/css/stylesheet.fd5566c526ae48aadabd950798a2dc3568536401560eae5caac3765a42a9e7b5.css" integrity="sha256-/VVmxSauSKravZUHmKLcNWhTZAFWDq5cqsN2WkKp57U=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/essencepartagee.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/essencepartagee.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/essencepartagee.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/essencepartagee.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/essencepartagee.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/essencepartagee.github.io/posts/market-microstructure-journey/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false}
+        ],
+        throwOnError: false
+    });"></script>
+
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/essencepartagee.github.io/" accesskey="h" title="Theoretical Explorations (Alt + H)">Theoretical Explorations</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      The Journey Into Market Microstructure: What We Discovered About Trading Systems
+    </h1>
+    <div class="post-description">
+      Starting with a 33% win rate MA crossover strategy on gold, this research revealed something unexpected about how markets actually work.
+    </div>
+    <div class="post-meta"><span title='2024-12-29 00:00:00 +0000 UTC'>December 29, 2024</span>&nbsp;·&nbsp;<span>Chris. M</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="where-it-started">Where It Started<a hidden class="anchor" aria-hidden="true" href="#where-it-started">#</a></h2>
+<p>The research began with a simple question that traders ask every day: &ldquo;Why does this moving average crossover strategy only win 33% of the time?&rdquo;</p>
+<p>On the surface, this seems like a straightforward problem. Most traders would look at this number and think: &ldquo;I need to find the right filters. Maybe I should only trade during certain hours, or when volatility is high, or when the trend is strong.&rdquo;</p>
+<p>But a different question emerged: <strong>&ldquo;What if 33% isn&rsquo;t one thing, but a weighted average of many different things?&rdquo;</strong></p>
+<p>This simple reframe changed everything.</p>
+<hr>
+<h2 id="the-first-discovery-pca-isnt-just-about-reducing-features">The First Discovery: PCA Isn&rsquo;t Just About Reducing Features<a hidden class="anchor" aria-hidden="true" href="#the-first-discovery-pca-isnt-just-about-reducing-features">#</a></h2>
+<p>When Principal Component Analysis (PCA) was first applied to the trading features, the expectation was that it would indicate which features to keep and which to discard.</p>
+<p><strong>What actually emerged:</strong> PCA revealed that the market operates in multiple dimensions simultaneously.</p>
+<pre tabindex="0"><code>PC1 explained 18.7% of variance (momentum/trend)
+PC2 explained 13.1% of variance (volatility/structure)
+PC3 explained 12.2% of variance (mean reversion signals)
+PC4 explained 11.1% of variance (price positioning)
+</code></pre><p>Notice something? No single component dominated. In a truly simple system, PC1 might explain 60-70% of variance. But here, the variance was spread across multiple components of similar importance.</p>
+<p><strong>This revealed something profound:</strong> The market isn&rsquo;t one system. It&rsquo;s multiple systems running in parallel, all contributing to what appears as &ldquo;price action.&rdquo;</p>
+<hr>
+<h2 id="what-was-measured-the-34-features">What Was Measured: The 34 Features<a hidden class="anchor" aria-hidden="true" href="#what-was-measured-the-34-features">#</a></h2>
+<p>Rather than throwing random indicators at the wall, a multi-timeframe feature set was carefully constructed to capture different aspects of market structure:</p>
+<h3 id="m15-entry-timeframe">M15 (Entry Timeframe)<a hidden class="anchor" aria-hidden="true" href="#m15-entry-timeframe">#</a></h3>
+<ul>
+<li><strong>ATR_M15</strong> - Volatility at entry scale</li>
+<li><strong>Spread_Pips</strong> - Transaction cost in real-time</li>
+<li><strong>RSI_M15</strong> - Momentum oscillator</li>
+<li><strong>MACD_Hist_M15</strong> - Momentum histogram</li>
+<li><strong>BarsSinceLastCross</strong> - Signal frequency tracker</li>
+</ul>
+<h3 id="h1-short-term-context">H1 (Short-Term Context)<a hidden class="anchor" aria-hidden="true" href="#h1-short-term-context">#</a></h3>
+<ul>
+<li><strong>H1_EMA_Slope</strong> - Immediate trend direction</li>
+<li><strong>H1_Alignment</strong> - Price vs moving averages</li>
+<li><strong>H1_ATR</strong> - Short-term volatility</li>
+<li><strong>Dist_H1_High</strong> - Distance to recent resistance</li>
+<li><strong>Dist_H1_Low</strong> - Distance to recent support</li>
+</ul>
+<h3 id="h4-medium-term-structure">H4 (Medium-Term Structure)<a hidden class="anchor" aria-hidden="true" href="#h4-medium-term-structure">#</a></h3>
+<ul>
+<li><strong>H4_EMA_Slope</strong> - Medium-term trend direction</li>
+<li><strong>H4_ADX</strong> - Trend strength indicator</li>
+<li><strong>H4_Trend</strong> - Directional bias</li>
+</ul>
+<h3 id="d1-macro-context">D1 (Macro Context)<a hidden class="anchor" aria-hidden="true" href="#d1-macro-context">#</a></h3>
+<ul>
+<li><strong>D1_EMA_Slope</strong> - Long-term trend direction</li>
+<li><strong>D1_Trend</strong> - Daily directional bias</li>
+<li><strong>D1_ATR</strong> - Long-term volatility</li>
+<li><strong>Dist_D1_High</strong> - Distance to daily resistance</li>
+<li><strong>Dist_D1_Low</strong> - Distance to daily support</li>
+</ul>
+<h3 id="risk--money-management">Risk &amp; Money Management<a hidden class="anchor" aria-hidden="true" href="#risk--money-management">#</a></h3>
+<ul>
+<li><strong>SL_ATR_Ratio</strong> - Stop loss sized to volatility</li>
+<li><strong>TP_ATR_Ratio</strong> - Target sized to volatility</li>
+<li><strong>RR_ATR_Adjusted</strong> - Risk-reward after volatility adjustment</li>
+</ul>
+<h3 id="price-structure">Price Structure<a hidden class="anchor" aria-hidden="true" href="#price-structure">#</a></h3>
+<ul>
+<li><strong>Dist_Round_100</strong> - Proximity to psychological levels (2800, 2900, etc.)</li>
+<li><strong>Dist_Round_50</strong> - Proximity to half-levels (2850, 2950, etc.)</li>
+</ul>
+<h3 id="recent-performance">Recent Performance<a hidden class="anchor" aria-hidden="true" href="#recent-performance">#</a></h3>
+<ul>
+<li><strong>Last5_WinRate</strong> - Win rate of last 5 trades</li>
+<li><strong>Last10_WinRate</strong> - Win rate of last 10 trades</li>
+<li><strong>AvgRR_Last10</strong> - Average risk-reward of recent trades</li>
+</ul>
+<h3 id="session--timing">Session &amp; Timing<a hidden class="anchor" aria-hidden="true" href="#session--timing">#</a></h3>
+<ul>
+<li><strong>Hour_GMT</strong> - Time of day</li>
+<li><strong>DayOfWeek</strong> - Day of week</li>
+<li><strong>IsLondon</strong> - London session indicator</li>
+<li><strong>IsNY</strong> - New York session indicator</li>
+<li><strong>IsOverlap</strong> - Session overlap indicator</li>
+</ul>
+<p><strong>The goal:</strong> Capture market state across all dimensions—volatility, trend, momentum, timing, price structure, and recent regime quality.</p>
+<hr>
+<h2 id="the-regime-clustering-mistake-and-what-it-taught">The Regime Clustering Mistake (And What It Taught)<a hidden class="anchor" aria-hidden="true" href="#the-regime-clustering-mistake-and-what-it-taught">#</a></h2>
+<p>The first attempt used K-means clustering to find &ldquo;good regimes&rdquo; versus &ldquo;bad regimes.&rdquo; The algorithm found 2 clusters:</p>
+<pre tabindex="0"><code>Regime 0: 31.4% win rate (39% of trades)
+Regime 1: 34.0% win rate (61% of trades)
+</code></pre><p>Initially, this appeared to be a failure. Both regimes performed poorly. The silhouette score (0.372) indicated &ldquo;weak clustering.&rdquo;</p>
+<p>But then the realization hit: <strong>This wasn&rsquo;t a failure. This was the data telling the truth.</strong></p>
+<p>The market wasn&rsquo;t hiding a &ldquo;golden regime&rdquo; waiting to be discovered. The poor clustering meant wins and losses were randomly distributed across the feature space. There was no secret pocket where the strategy worked brilliantly.</p>
+<p><strong>The insight:</strong> Learning to listen when data says &ldquo;there&rsquo;s no pattern here&rdquo; rather than forcing a pattern to exist.</p>
+<hr>
+<h2 id="the-real-breakthrough-multi-timeframe-system-theory">The Real Breakthrough: Multi-Timeframe System Theory<a hidden class="anchor" aria-hidden="true" href="#the-real-breakthrough-multi-timeframe-system-theory">#</a></h2>
+<p>This is where things got interesting.</p>
+<p>The search shifted from looking for &ldquo;good versus bad&rdquo; to mapping the complete ecosystem. Features were separated by timeframe:</p>
+<pre tabindex="0"><code>M15 features → M15 System Component
+H1 features → H1 System Component
+H4 features → H4 System Component
+D1 features → D1 System Component
+</code></pre><p>Then these four systems were visualized in how they interact in 3D and 4D space.</p>
+<p><img alt="3D Market Structure Visualization" loading="lazy" src="/essencepartagee.github.io/images/3d_web_structure.png">
+<em>The complete web of M15 × H1 × H4 interactions. Red = losses, Green = wins. Notice how they&rsquo;re completely mixed—no clear &lsquo;winning zone&rsquo; exists.</em></p>
+<p><strong>What the visualization revealed was beautiful and brutal at the same time.</strong></p>
+<p>Beautiful: The complete web structure became visible. The intricate dance of how micro-movements (M15) interact with short-term flows (H1), medium-term trends (H4), and macro structure (D1) emerged. The market revealed itself not as chaos, but as a structured multi-scale system.</p>
+<p>Brutal: Even in the best configurations, performance was mediocre.</p>
+<hr>
+<h2 id="the-three-connected-circles-concept">The &ldquo;Three Connected Circles&rdquo; Concept<a hidden class="anchor" aria-hidden="true" href="#the-three-connected-circles-concept">#</a></h2>
+<p>Here&rsquo;s where real insight emerged.</p>
+<p>Analysis of timeframe alignment—how often M15, H1, and H4 agreed on direction—revealed a clear pattern:</p>
+<pre tabindex="0"><code>0 timeframes aligned: 28.9% win rate (total disagreement = noise)
+1 timeframe aligned:  34.2% win rate (weak signal)
+2 timeframes aligned: 31.2% win rate (moderate signal)
+3 timeframes aligned: 36.0% win rate (strong signal)
+</code></pre><p><img alt="Win Rate by Timeframe Alignment" loading="lazy" src="/essencepartagee.github.io/images/alignment_analysis.png">
+<em>Progressive improvement as more timeframes align. But even perfect alignment only achieves 36% win rate—barely profitable.</em></p>
+<p>This progression revealed something critical: <strong>The market operates through consensus across timeframes.</strong></p>
+<p>When only M15 says &ldquo;go long&rdquo; but H1, H4, and D1 disagree, the trade fights the larger structure. When all timeframes align, the trade moves with the full weight of market structure.</p>
+<p>But here&rsquo;s the sophisticated part: The 33% overall win rate isn&rsquo;t random. It&rsquo;s the <strong>weighted average</strong> of all these states:</p>
+<pre tabindex="0"><code>10% of trades: M15-|H1-|H4- (all bearish) → 38.9% win rate → contributes 3.9pp
+14% of trades: M15+|H1+|H4- (mixed signals) → 37.6% win rate → contributes 5.3pp
+18% of trades: M15+|H1+|H4+ (all bullish) → 36.5% win rate → contributes 6.6pp
+22% of trades: M15-|H1-|H4+ (contrarian) → 31.2% win rate → contributes 6.9pp
+...
+
+Sum = 33%
+</code></pre><p><strong>The insight:</strong> The 33% isn&rsquo;t a failure. It&rsquo;s a COMPOSITION. Like white light splitting into a spectrum, aggregate performance decomposed into its constituent parts.</p>
+<hr>
+<h2 id="what-this-revealed-about-market-structure">What This Revealed About Market Structure<a hidden class="anchor" aria-hidden="true" href="#what-this-revealed-about-market-structure">#</a></h2>
+<h3 id="1-markets-are-multi-scale-systems">1. Markets Are Multi-Scale Systems<a hidden class="anchor" aria-hidden="true" href="#1-markets-are-multi-scale-systems">#</a></h3>
+<p>What happens on M15 isn&rsquo;t independent of what happens on H4. They&rsquo;re coupled. A strong H4 trend creates a bias that influences M15 behavior. When H4 says &ldquo;uptrend&rdquo; but M15 generates a &ldquo;sell signal,&rdquo; the trade doesn&rsquo;t just fight one timeframe—it fights the cascade of larger timeframes.</p>
+<p><strong>The insight:</strong> This is why professional traders emphasize &ldquo;timeframe confluence.&rdquo; They&rsquo;re recognizing that market structure exists across scales, and trading with multi-timeframe agreement means trading with the weight of that structure.</p>
+<h3 id="2-homogeneous-mediocrity-versus-heterogeneous-performance">2. Homogeneous Mediocrity Versus Heterogeneous Performance<a hidden class="anchor" aria-hidden="true" href="#2-homogeneous-mediocrity-versus-heterogeneous-performance">#</a></h3>
+<p>This is subtle but crucial.</p>
+<p>Analysis found NO sub-system with &gt;40% win rate. The best was 38.9%. Most were below 35%.</p>
+<p><strong>This indicates:</strong> The moving average crossover strategy doesn&rsquo;t have a strong edge in ANY market condition. It&rsquo;s not about &ldquo;trading it in the wrong conditions.&rdquo; The strategy itself lacks robustness.</p>
+<p><strong>The value:</strong> This saved months or years of optimization hell. Time could have been spent forever tweaking parameters, trying different filters, adjusting stop losses. But the fundamental architecture is flawed. No amount of optimization fixes a strategy that performs uniformly poorly across all sub-systems.</p>
+<h3 id="3-transitions-dont-create-edge-in-this-case">3. Transitions Don&rsquo;t Create Edge (In This Case)<a hidden class="anchor" aria-hidden="true" href="#3-transitions-dont-create-edge-in-this-case">#</a></h3>
+<p>Testing whether system state transitions—the moments when market structure shifts—create opportunities or dangers showed:</p>
+<pre tabindex="0"><code>During transitions: ~33% win rate
+During stable states: ~33% win rate
+</code></pre><p>No significant difference.</p>
+<p><strong>What this means:</strong> The market doesn&rsquo;t telegraph its intentions through abrupt regime changes. There are no clear boundaries where behavior shifts dramatically.</p>
+<p><strong>The insight:</strong> Some markets DO have this property. During regime transitions, volatility spikes and strategy performance degrades. But gold on M15 with MA crossover? Smooth transitions. This indicates the timeframes blend continuously rather than shifting discretely.</p>
+<hr>
+<h2 id="the-statistical-significance-lesson">The Statistical Significance Lesson<a hidden class="anchor" aria-hidden="true" href="#the-statistical-significance-lesson">#</a></h2>
+<p>Early on, regimes with 45%, 50%, even 55% win rates appeared. Excitement followed.</p>
+<p>Then sample sizes were checked: 15 setups, 20 setups, 25 setups.</p>
+<p><strong>The lesson:</strong> At small sample sizes, random variance dominates signal. A regime might show 50% win rate with 20 setups purely by chance.</p>
+<p>So proper statistical testing was implemented:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Proportion z-test</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Only accept if:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#   1. p &lt; 0.05 (statistically significant)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#   2. improvement &gt; 3pp (practically significant)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#   3. n &gt; 30 (sufficient sample size)</span>
+</span></span></code></pre></div><p>When these filters were applied, the &ldquo;amazing&rdquo; regimes vanished. They were statistical noise.</p>
+<p><strong>The insight:</strong> This taught intellectual humility. Data will show patterns that don&rsquo;t exist if allowed to. Rigorous testing protects against pattern-seeking cognitive biases.</p>
+<hr>
+<h2 id="what-this-framework-provides">What This Framework Provides<a hidden class="anchor" aria-hidden="true" href="#what-this-framework-provides">#</a></h2>
+<h3 id="1-a-map-of-market-structure">1. A Map of Market Structure<a hidden class="anchor" aria-hidden="true" href="#1-a-map-of-market-structure">#</a></h3>
+<p>The market can now be seen not as a single entity but as an ecosystem:</p>
+<pre tabindex="0"><code>        [M15 Micro-movements]
+               ↓
+        [H1 Short-term flows]
+               ↓
+        [H4 Medium-term trends]
+               ↓
+        [D1 Macro structure]
+</code></pre><p>Each level influences the next. When they align (confluence), cleaner moves emerge. When they disagree (divergence), choppy, difficult conditions appear.</p>
+<h3 id="2-a-framework-for-any-strategy">2. A Framework for Any Strategy<a hidden class="anchor" aria-hidden="true" href="#2-a-framework-for-any-strategy">#</a></h3>
+<p>This approach isn&rsquo;t specific to moving averages. It can be applied to ANY trading system:</p>
+<ul>
+<li>Breakout strategies: How do breakouts perform across different timeframe configurations?</li>
+<li>Mean reversion: Which timeframe overlaps favor reversal?</li>
+<li>News trading: How does multi-timeframe structure affect news reaction?</li>
+</ul>
+<p><strong>The value:</strong> A general framework for understanding strategy performance across market states.</p>
+<h3 id="3-a-decision-making-tool">3. A Decision-Making Tool<a hidden class="anchor" aria-hidden="true" href="#3-a-decision-making-tool">#</a></h3>
+<p>Before: binary thinking—&ldquo;Should I take this trade?&rdquo;</p>
+<p>Now: contextual thinking:</p>
+<pre tabindex="0"><code>&#34;A signal appears. Checking:
+ - M15 says: Long
+ - H1 says: Neutral
+ - H4 says: Short
+
+Timeframe disagreement = 0 aligned
+Expected win rate: ~29%
+Decision: Pass. Wait for alignment.&#34;
+</code></pre><h3 id="4-protection-against-overfitting">4. Protection Against Overfitting<a hidden class="anchor" aria-hidden="true" href="#4-protection-against-overfitting">#</a></h3>
+<p>By mapping ALL sub-systems, it becomes visible whether edge is:</p>
+<ul>
+<li><strong>Concentrated</strong> (one regime works, others fail → fragile, likely overfit)</li>
+<li><strong>Distributed</strong> (multiple regimes work similarly → robust)</li>
+<li><strong>Absent</strong> (all regimes mediocre → strategy issue)</li>
+</ul>
+<p>In this case: Absent. This prevented over-optimizing a fundamentally weak strategy.</p>
+<hr>
+<h2 id="the-brutal-honesty-gained">The Brutal Honesty Gained<a hidden class="anchor" aria-hidden="true" href="#the-brutal-honesty-gained">#</a></h2>
+<p>Here&rsquo;s what wasn&rsquo;t found:</p>
+<ul>
+<li>A &ldquo;golden regime&rdquo; with 60% win rate hiding in the data</li>
+<li>A perfect parameter combination that makes everything work</li>
+<li>A secret the market was hiding waiting to be unlocked</li>
+</ul>
+<p>Here&rsquo;s what WAS found:</p>
+<ul>
+<li>Complete transparency into how the strategy performs across ALL market states</li>
+<li>Clear evidence that the strategy lacks robust edge</li>
+<li>Understanding of WHY it lacks edge (performs poorly everywhere, not just some places)</li>
+<li>A framework to test OTHER strategies more intelligently</li>
+</ul>
+<p><strong>The insight:</strong> The difference between &ldquo;finding edge&rdquo; and &ldquo;understanding structure.&rdquo;</p>
+<p>Sometimes the most valuable discovery is learning what DOESN&rsquo;T work, and why, so time isn&rsquo;t wasted on it.</p>
+<hr>
+<h2 id="what-could-be-done-differently-next-time">What Could Be Done Differently Next Time<a hidden class="anchor" aria-hidden="true" href="#what-could-be-done-differently-next-time">#</a></h2>
+<p>Armed with this framework, here&rsquo;s an improved approach:</p>
+<h3 id="phase-1-rapid-viability-test">Phase 1: Rapid Viability Test<a hidden class="anchor" aria-hidden="true" href="#phase-1-rapid-viability-test">#</a></h3>
+<pre tabindex="0"><code>1. Collect data (already done)
+2. Apply multi-timeframe system analysis
+3. Check: Do ANY sub-systems show &gt;40% win rate?
+
+If NO → Strategy is fundamentally weak, move on
+If YES → Proceed to optimization
+</code></pre><p><strong>Time saved:</strong> Weeks or months of futile optimization.</p>
+<h3 id="phase-2-sub-system-optimization">Phase 2: Sub-System Optimization<a hidden class="anchor" aria-hidden="true" href="#phase-2-sub-system-optimization">#</a></h3>
+<pre tabindex="0"><code>For systems with &gt;40% win rate:
+1. Identify which timeframe configurations work
+2. Build filters to trade ONLY those configurations
+3. Test robustness across time periods
+4. Implement with conservative position sizing
+</code></pre><h3 id="phase-3-regime-aware-position-sizing">Phase 3: Regime-Aware Position Sizing<a hidden class="anchor" aria-hidden="true" href="#phase-3-regime-aware-position-sizing">#</a></h3>
+<pre tabindex="0"><code>Don&#39;t just trade or not trade.
+Scale position size by expected edge:
+
+3 timeframes aligned (36% WR) → 1.0% risk
+2 timeframes aligned (31% WR) → 0.5% risk
+1 timeframe aligned (34% WR) → 0.7% risk
+0 timeframes aligned (29% WR) → Skip
+</code></pre><hr>
+<h2 id="the-deepest-insight-markets-as-complex-adaptive-systems">The Deepest Insight: Markets As Complex Adaptive Systems<a hidden class="anchor" aria-hidden="true" href="#the-deepest-insight-markets-as-complex-adaptive-systems">#</a></h2>
+<p>Through this process, thinking about markets shifted.</p>
+<p><strong>Old thinking:</strong> &ldquo;The market is going up or down. I need to predict which.&rdquo;</p>
+<p><strong>New thinking:</strong> &ldquo;The market is a multi-scale system where different timeframes process information at different speeds. Price is the output of their interaction. The job isn&rsquo;t to predict price, but to identify configurations where these timeframes agree, creating temporary statistical edges.&rdquo;</p>
+<p>This is the shift from <strong>prediction</strong> to <strong>pattern recognition</strong>.</p>
+<p>The goal isn&rsquo;t knowing what price will do. It&rsquo;s knowing what configuration exists, and how that configuration historically behaves.</p>
+<hr>
+<h2 id="what-this-means-for-trading-psychology">What This Means for Trading Psychology<a hidden class="anchor" aria-hidden="true" href="#what-this-means-for-trading-psychology">#</a></h2>
+<p>One final insight: This framework changes how drawdowns are experienced.</p>
+<p><strong>Before:</strong></p>
+<pre tabindex="0"><code>7 losses in a row:
+&#34;Oh no, the strategy stopped working!
+The market changed!
+I need to fix something!&#34;
+</code></pre><p><strong>After:</strong></p>
+<pre tabindex="0"><code>7 losses in a row:
+&#34;Checking system state...
+Currently in &#39;M15+|H1-|H4+&#39; configuration.
+Historical win rate: 31%
+7 losses from a 31% win rate system = normal variance
+Expected losing streak at this win rate: up to 12 trades
+Well within normal bounds.
+Continue trading the system.&#34;
+</code></pre><p><strong>The insight:</strong> Psychological stability through structural understanding.</p>
+<hr>
+<h2 id="the-path-forward-making-money-yes-thats-still-the-goal">The Path Forward: Making Money (Yes, That&rsquo;s Still The Goal)<a hidden class="anchor" aria-hidden="true" href="#the-path-forward-making-money-yes-thats-still-the-goal">#</a></h2>
+<p>Let&rsquo;s be honest—understanding market structure is fascinating, but trading is about making money.</p>
+<p>Here&rsquo;s what this research means for profitability:</p>
+<h3 id="what-wont-work">What Won&rsquo;t Work:<a hidden class="anchor" aria-hidden="true" href="#what-wont-work">#</a></h3>
+<ul>
+<li>Keep optimizing MA crossover hoping for 50% win rate</li>
+<li>Add more filters to a fundamentally weak strategy</li>
+<li>Trade all signals and hope for the best</li>
+</ul>
+<h3 id="what-will-work">What Will Work:<a hidden class="anchor" aria-hidden="true" href="#what-will-work">#</a></h3>
+<ul>
+<li><strong>Apply this framework to OTHER strategies</strong> - Test breakouts, mean reversion, volatility expansion systems</li>
+<li><strong>Use 3-timeframe alignment as a filter</strong> - Only trade when M15, H1, H4 agree (36% win rate barely profitable, but it&rsquo;s a start)</li>
+<li><strong>Build a strategy portfolio</strong> - Different strategies for different timeframe configurations</li>
+<li><strong>Scale position size by edge</strong> - Risk 2% on high-confidence setups, 0.5% on marginal ones</li>
+</ul>
+<h3 id="the-real-opportunity">The Real Opportunity:<a hidden class="anchor" aria-hidden="true" href="#the-real-opportunity">#</a></h3>
+<p>This framework revealed that <strong>MA crossover is weak everywhere</strong>. But that&rsquo;s ONE strategy on ONE timeframe on ONE instrument.</p>
+<p>What if testing includes:</p>
+<ul>
+<li>Breakouts on gold M15 during London open?</li>
+<li>Mean reversion on gold H1 during low volatility?</li>
+<li>Trend following on gold H4 with D1 confirmation?</li>
+<li>News-based volatility expansion strategies?</li>
+</ul>
+<p>Each gets the full PCA + multi-timeframe analysis treatment. Map ALL sub-systems. Find what works, where it works, and HOW OFTEN it works.</p>
+<p><strong>The edge isn&rsquo;t in one perfect strategy. It&rsquo;s in understanding the complete structure of multiple strategies across multiple market states.</strong></p>
+<p>Professional quant funds don&rsquo;t run one strategy. They run portfolios of 50-100 strategies, each designed for specific market configurations. When regime X appears, strategy A activates. When regime Y appears, strategy B activates.</p>
+<p>Building that same capability, one analysis at a time.</p>
+<hr>
+<h2 id="want-to-replicate-this-research">Want to Replicate This Research?<a hidden class="anchor" aria-hidden="true" href="#want-to-replicate-this-research">#</a></h2>
+<p>This research believes in open knowledge and collaborative learning. Here&rsquo;s what can be shared:</p>
+<h3 id="the-data">The Data<a hidden class="anchor" aria-hidden="true" href="#the-data">#</a></h3>
+<p>The dataset includes <strong>1,564 MA crossover setups on XAUUSD (gold) M15 timeframe</strong> from March 2021 to December 2024. Each setup includes:</p>
+<ul>
+<li>Entry price, stop loss, take profit</li>
+<li>All 34 features listed above</li>
+<li>Outcome (win/loss)</li>
+<li>Timestamp</li>
+</ul>
+<blockquote>
+<p><strong>Interested in the raw data?</strong> Considering releasing the CSV files for community analysis. If there&rsquo;s enough interest, they&rsquo;ll be made available for download. Let us know in the comments.</p>
+</blockquote>
+<h3 id="the-analysis-code">The Analysis Code<a hidden class="anchor" aria-hidden="true" href="#the-analysis-code">#</a></h3>
+<p>The entire analysis pipeline was built in <strong>Jupyter notebooks</strong> for reproducibility:</p>
+<ol>
+<li><strong>PCA_Regime_Clustering.ipynb</strong> - Initial regime discovery using K-means</li>
+<li><strong>Multi_Timeframe_System_Web.ipynb</strong> - Complete multi-scale system analysis</li>
+<li><strong>honest_regime_analysis.py</strong> - Statistical significance testing framework</li>
+</ol>
+<p>Each notebook includes:</p>
+<ul>
+<li>Step-by-step explanations</li>
+<li>Visualization code</li>
+<li>Statistical testing procedures</li>
+<li>Interpretations of results</li>
+</ul>
+<blockquote>
+<p><strong>Want the analysis code?</strong> If there&rsquo;s sufficient interest from the trading community, the full Jupyter notebooks will be released on GitHub. This would allow:</p>
+<ul>
+<li>Replicating this analysis on your own strategies</li>
+<li>Testing different instruments and timeframes</li>
+<li>Extending the framework with your own ideas</li>
+<li>Contributing improvements back to the community</li>
+</ul>
+<p>Drop a comment if this would be useful.</p>
+</blockquote>
+<h3 id="why-share-this">Why Share This?<a hidden class="anchor" aria-hidden="true" href="#why-share-this">#</a></h3>
+<p>The trading community benefits from open research. Too much &ldquo;proprietary knowledge&rdquo; is just repackaged common sense sold at premium prices.</p>
+<p>Real edge comes from:</p>
+<ul>
+<li>Better execution</li>
+<li>Superior risk management</li>
+<li>Psychological discipline</li>
+<li>Portfolio construction</li>
+<li>Position sizing</li>
+</ul>
+<p><strong>Not</strong> from secret indicators or magic parameters.</p>
+<p>If sharing this framework helps 100 traders avoid wasting months on weak strategies, that&rsquo;s more valuable than hoarding it.</p>
+<p>Plus, seeing what others discover using these tools would be valuable. Collaborative research compounds faster than solo research.</p>
+<hr>
+<h2 id="conclusion-the-real-treasure">Conclusion: The Real Treasure<a hidden class="anchor" aria-hidden="true" href="#conclusion-the-real-treasure">#</a></h2>
+<p>The goal was to improve a 33% win rate strategy.</p>
+<p>The discovery: it couldn&rsquo;t be done—at least not with the current approach.</p>
+<p>But something more valuable emerged: <strong>a complete framework for understanding how any strategy performs across the full spectrum of market states.</strong></p>
+<p>Key learnings:</p>
+<ul>
+<li>How to decompose aggregate performance into sub-systems</li>
+<li>How to visualize multi-dimensional market structure</li>
+<li>How to test rigorously against random chance</li>
+<li>How to think about markets as multi-scale systems</li>
+<li>How to avoid overfitting by mapping complete structure</li>
+<li>When to abandon a strategy versus when to optimize it</li>
+</ul>
+<p><strong>The ultimate value:</strong> The ability to look at ANY trading system and ask:</p>
+<p>&ldquo;Show me the sub-systems. Show me where edge concentrates. Show me whether it&rsquo;s robust or fragile. Show me whether optimization would help or hurt.&rdquo;</p>
+<p>This is the shift from <strong>trial-and-error trader</strong> to <strong>quantitative researcher</strong>.</p>
+<p>And that&rsquo;s worth far more than any single strategy.</p>
+<p>Because here&rsquo;s the truth: <strong>One good strategy makes money for a while. A framework for evaluating strategies makes money forever.</strong></p>
+<hr>
+<h2 id="the-journey-continues">The Journey Continues<a hidden class="anchor" aria-hidden="true" href="#the-journey-continues">#</a></h2>
+<p>Next steps in this research:</p>
+<ol>
+<li><strong>Test this framework on breakout strategies</strong> - Gold respects ranges; maybe breakouts work where MA crossover doesn&rsquo;t</li>
+<li><strong>Analyze session-based patterns</strong> - London open volatility might create exploitable edges</li>
+<li><strong>Build strategy portfolio</strong> - Different approaches for different market configurations</li>
+<li><strong>Extend to other instruments</strong> - Does this framework reveal similar structure in FX, crypto, indices?</li>
+</ol>
+<p>Everything will be documented. The wins, the losses, the surprises, the failures.</p>
+<p>Because the real edge isn&rsquo;t in hiding what&rsquo;s learned—it&rsquo;s in learning faster than everyone else.</p>
+<hr>
+<blockquote>
+<p><strong>Questions for the community:</strong></p>
+<ol>
+<li>Would the raw data be useful for your own research?</li>
+<li>Should the Jupyter notebooks be released publicly?</li>
+<li>What other strategies should be analyzed with this framework?</li>
+<li>What markets/timeframes are you most interested in seeing analyzed?</li>
+</ol>
+<p>Let us know in the comments. If there&rsquo;s enough interest, everything will be packaged up and released.</p>
+</blockquote>
+<hr>
+<p><em>The journey continues. Next: testing this framework on different strategies, different timeframes, different markets. Armed with structural understanding, no longer shooting in the dark. Mapping the terrain, one system at a time.</em></p>
+<p><em>And yes, still here to make money. But now with a map.</em></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/essencepartagee.github.io/tags/trading/">Trading</a></li>
+      <li><a href="http://localhost:1313/essencepartagee.github.io/tags/quantitative-analysis/">Quantitative-Analysis</a></li>
+      <li><a href="http://localhost:1313/essencepartagee.github.io/tags/machine-learning/">Machine-Learning</a></li>
+      <li><a href="http://localhost:1313/essencepartagee.github.io/tags/pca/">PCA</a></li>
+      <li><a href="http://localhost:1313/essencepartagee.github.io/tags/market-microstructure/">Market-Microstructure</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/essencepartagee.github.io/">Theoretical Explorations</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

@@ -2,27 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/tags/consciousness/</loc>
+    <loc>http://localhost:1313/essencepartagee.github.io/tags/consciousness/</loc>
     <lastmod>2025-12-08T04:31:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/mathematics/</loc>
+    <loc>http://localhost:1313/essencepartagee.github.io/tags/mathematics/</loc>
     <lastmod>2025-12-08T04:31:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
+    <loc>http://localhost:1313/essencepartagee.github.io/posts/</loc>
     <lastmod>2025-12-08T04:31:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>http://localhost:1313/essencepartagee.github.io/tags/</loc>
     <lastmod>2025-12-08T04:31:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/toroidal-consciousness/</loc>
+    <loc>http://localhost:1313/essencepartagee.github.io/posts/toroidal-consciousness/</loc>
     <lastmod>2025-12-08T04:31:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>http://localhost:1313/essencepartagee.github.io/</loc>
     <lastmod>2025-12-08T04:31:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/topology/</loc>
+    <loc>http://localhost:1313/essencepartagee.github.io/tags/topology/</loc>
     <lastmod>2025-12-08T04:31:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>http://localhost:1313/essencepartagee.github.io/categories/</loc>
+    <lastmod>2024-12-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/essencepartagee.github.io/tags/machine-learning/</loc>
+    <lastmod>2024-12-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/essencepartagee.github.io/tags/market-microstructure/</loc>
+    <lastmod>2024-12-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/essencepartagee.github.io/tags/pca/</loc>
+    <lastmod>2024-12-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/essencepartagee.github.io/tags/quantitative-analysis/</loc>
+    <lastmod>2024-12-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/essencepartagee.github.io/posts/market-microstructure-journey/</loc>
+    <lastmod>2024-12-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/essencepartagee.github.io/tags/trading/</loc>
+    <lastmod>2024-12-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/essencepartagee.github.io/categories/trading-research/</loc>
+    <lastmod>2024-12-29T00:00:00+00:00</lastmod>
   </url>
 </urlset>

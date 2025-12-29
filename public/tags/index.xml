@@ -2,31 +2,66 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on Theoretical Explorations</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>http://localhost:1313/essencepartagee.github.io/tags/</link>
     <description>Recent content in Tags on Theoretical Explorations</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 08 Dec 2025 04:31:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/essencepartagee.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Consciousness</title>
-      <link>http://localhost:1313/tags/consciousness/</link>
+      <link>http://localhost:1313/essencepartagee.github.io/tags/consciousness/</link>
       <pubDate>Mon, 08 Dec 2025 04:31:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/consciousness/</guid>
+      <guid>http://localhost:1313/essencepartagee.github.io/tags/consciousness/</guid>
       <description></description>
     </item>
     <item>
       <title>Mathematics</title>
-      <link>http://localhost:1313/tags/mathematics/</link>
+      <link>http://localhost:1313/essencepartagee.github.io/tags/mathematics/</link>
       <pubDate>Mon, 08 Dec 2025 04:31:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/mathematics/</guid>
+      <guid>http://localhost:1313/essencepartagee.github.io/tags/mathematics/</guid>
       <description></description>
     </item>
     <item>
       <title>Topology</title>
-      <link>http://localhost:1313/tags/topology/</link>
+      <link>http://localhost:1313/essencepartagee.github.io/tags/topology/</link>
       <pubDate>Mon, 08 Dec 2025 04:31:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/topology/</guid>
+      <guid>http://localhost:1313/essencepartagee.github.io/tags/topology/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Machine-Learning</title>
+      <link>http://localhost:1313/essencepartagee.github.io/tags/machine-learning/</link>
+      <pubDate>Sun, 29 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/essencepartagee.github.io/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Market-Microstructure</title>
+      <link>http://localhost:1313/essencepartagee.github.io/tags/market-microstructure/</link>
+      <pubDate>Sun, 29 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/essencepartagee.github.io/tags/market-microstructure/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>PCA</title>
+      <link>http://localhost:1313/essencepartagee.github.io/tags/pca/</link>
+      <pubDate>Sun, 29 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/essencepartagee.github.io/tags/pca/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Quantitative-Analysis</title>
+      <link>http://localhost:1313/essencepartagee.github.io/tags/quantitative-analysis/</link>
+      <pubDate>Sun, 29 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/essencepartagee.github.io/tags/quantitative-analysis/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Trading</title>
+      <link>http://localhost:1313/essencepartagee.github.io/tags/trading/</link>
+      <pubDate>Sun, 29 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/essencepartagee.github.io/tags/trading/</guid>
       <description></description>
     </item>
   </channel>

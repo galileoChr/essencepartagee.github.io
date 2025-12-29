@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Consciousness on Theoretical Explorations</title>
-    <link>http://localhost:1313/tags/consciousness/</link>
+    <link>http://localhost:1313/essencepartagee.github.io/tags/consciousness/</link>
     <description>Recent content in Consciousness on Theoretical Explorations</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 08 Dec 2025 04:31:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/consciousness/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/essencepartagee.github.io/tags/consciousness/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Toroidal Structure of Pretending: Internal-External Flow</title>
-      <link>http://localhost:1313/posts/toroidal-consciousness/</link>
+      <link>http://localhost:1313/essencepartagee.github.io/posts/toroidal-consciousness/</link>
       <pubDate>Mon, 08 Dec 2025 04:31:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/toroidal-consciousness/</guid>
+      <guid>http://localhost:1313/essencepartagee.github.io/posts/toroidal-consciousness/</guid>
       <description>Exploring how toroidal geometry describes the relationship between internal states and external presentation</description>
     </item>
   </channel>
