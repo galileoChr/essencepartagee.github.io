@@ -6,7 +6,8 @@ enableRobotsTXT = true
 enableGitInfo = true
 
 # Pagination
-paginate = 10
+[pagination]
+  pagerSize = 10
 
 # Sitemap configuration
 [sitemap]

@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Theoretical Explorations</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 29 Dec 2025 01:27:37 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 31 Dec 2025 22:48:30 -0400</lastBuildDate>
     <atom:link href="http://localhost:1313/essencepartagee.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Consciousness</title>
@@ -27,6 +27,34 @@
       <link>http://localhost:1313/essencepartagee.github.io/tags/topology/</link>
       <pubDate>Mon, 08 Dec 2025 04:31:00 +0000</pubDate>
       <guid>http://localhost:1313/essencepartagee.github.io/tags/topology/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cognition</title>
+      <link>http://localhost:1313/essencepartagee.github.io/tags/cognition/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/essencepartagee.github.io/tags/cognition/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dimensional-Analysis</title>
+      <link>http://localhost:1313/essencepartagee.github.io/tags/dimensional-analysis/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/essencepartagee.github.io/tags/dimensional-analysis/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Market-Structure</title>
+      <link>http://localhost:1313/essencepartagee.github.io/tags/market-structure/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/essencepartagee.github.io/tags/market-structure/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Trading</title>
+      <link>http://localhost:1313/essencepartagee.github.io/tags/trading/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/essencepartagee.github.io/tags/trading/</guid>
       <description></description>
     </item>
     <item>
@@ -55,13 +83,6 @@
       <link>http://localhost:1313/essencepartagee.github.io/tags/quantitative-analysis/</link>
       <pubDate>Sun, 29 Dec 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/essencepartagee.github.io/tags/quantitative-analysis/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Trading</title>
-      <link>http://localhost:1313/essencepartagee.github.io/tags/trading/</link>
-      <pubDate>Sun, 29 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/essencepartagee.github.io/tags/trading/</guid>
       <description></description>
     </item>
   </channel>

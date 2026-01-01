@@ -3,47 +3,77 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/essencepartagee.github.io/categories/</loc>
-    <lastmod>2025-12-29T01:27:37-04:00</lastmod>
+    <lastmod>2025-12-31T22:48:30-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/essencepartagee.github.io/tags/consciousness/</loc>
-    <lastmod>2025-12-08T01:07:42-04:00</lastmod>
+    <lastmod>2025-12-31T22:48:30-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/essencepartagee.github.io/tags/mathematics/</loc>
-    <lastmod>2025-12-08T01:07:42-04:00</lastmod>
+    <lastmod>2025-12-31T22:48:30-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/essencepartagee.github.io/posts/</loc>
-    <lastmod>2025-12-29T01:27:37-04:00</lastmod>
+    <lastmod>2025-12-31T22:48:30-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/essencepartagee.github.io/tags/</loc>
-    <lastmod>2025-12-29T01:27:37-04:00</lastmod>
+    <lastmod>2025-12-31T22:48:30-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/essencepartagee.github.io/posts/toroidal-consciousness/</loc>
-    <lastmod>2025-12-08T01:07:42-04:00</lastmod>
+    <lastmod>2025-12-31T22:48:30-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/essencepartagee.github.io/</loc>
-    <lastmod>2025-12-29T01:27:37-04:00</lastmod>
+    <lastmod>2025-12-31T22:48:30-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/essencepartagee.github.io/categories/theoretical-research/</loc>
-    <lastmod>2025-12-08T01:07:42-04:00</lastmod>
+    <lastmod>2025-12-31T22:48:30-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/essencepartagee.github.io/tags/topology/</loc>
-    <lastmod>2025-12-08T01:07:42-04:00</lastmod>
+    <lastmod>2025-12-31T22:48:30-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/essencepartagee.github.io/tags/cognition/</loc>
+    <lastmod>2025-12-31T22:48:30-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/essencepartagee.github.io/tags/dimensional-analysis/</loc>
+    <lastmod>2025-12-31T22:48:30-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/essencepartagee.github.io/tags/market-structure/</loc>
+    <lastmod>2025-12-31T22:48:30-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/essencepartagee.github.io/posts/three-planes-market-observation/</loc>
+    <lastmod>2025-12-31T22:48:30-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/essencepartagee.github.io/tags/trading/</loc>
+    <lastmod>2025-12-31T22:48:30-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/essencepartagee.github.io/categories/trading-research/</loc>
+    <lastmod>2025-12-31T22:48:30-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -68,16 +98,6 @@
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/essencepartagee.github.io/posts/market-microstructure-journey/</loc>
-    <lastmod>2025-12-29T01:27:37-04:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://localhost:1313/essencepartagee.github.io/tags/trading/</loc>
-    <lastmod>2025-12-29T01:27:37-04:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://localhost:1313/essencepartagee.github.io/categories/trading-research/</loc>
     <lastmod>2025-12-29T01:27:37-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

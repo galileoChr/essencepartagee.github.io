@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/essencepartagee.github.io/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=essencepartagee.github.io/livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>The Three Planes of Market Observation | Theoretical Explorations</title>
+<meta name="keywords" content="trading, cognition, market-structure, dimensional-analysis">
+<meta name="description" content="How different observational planes reveal different aspects of market structure, and why most traders get stuck viewing price in only one dimension">
+<meta name="author" content="Chris. M">
+<link rel="canonical" href="http://localhost:1313/essencepartagee.github.io/posts/three-planes-market-observation/">
+<link crossorigin="anonymous" href="/essencepartagee.github.io/assets/css/stylesheet.fd5566c526ae48aadabd950798a2dc3568536401560eae5caac3765a42a9e7b5.css" integrity="sha256-/VVmxSauSKravZUHmKLcNWhTZAFWDq5cqsN2WkKp57U=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/essencepartagee.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/essencepartagee.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/essencepartagee.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/essencepartagee.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/essencepartagee.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/essencepartagee.github.io/posts/three-planes-market-observation/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false}
+        ],
+        throwOnError: false
+    });"></script>
+
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/essencepartagee.github.io/" accesskey="h" title="Theoretical Explorations (Alt + H)">Theoretical Explorations</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      The Three Planes of Market Observation
+    </h1>
+    <div class="post-description">
+      How different observational planes reveal different aspects of market structure, and why most traders get stuck viewing price in only one dimension
+    </div>
+    <div class="post-meta"><span title='2025-01-01 00:00:00 +0000 UTC'>January 1, 2025</span>&nbsp;·&nbsp;<span>Chris. M</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>The human body exists in three-dimensional space, but medical imaging doesn&rsquo;t try to capture all three dimensions at once. Instead, it slices through the body along specific planes: transverse (horizontal), frontal (vertical face-on), and sagittal (vertical side-on). Each plane reveals structure invisible from the other angles.</p>
+<p><img alt="Three Observational Planes" loading="lazy" src="/essencepartagee.github.io/images/three-planes-diagram.png">
+<em>The three anatomical planes: transverse (horizontal slice), frontal (front-to-back), and sagittal (side view). Each reveals different structural information.</em></p>
+<p>Markets work the same way.</p>
+<h2 id="the-problem-with-single-plane-analysis">The Problem With Single-Plane Analysis<a hidden class="anchor" aria-hidden="true" href="#the-problem-with-single-plane-analysis">#</a></h2>
+<p>Most retail traders live entirely in the transverse plane. They&rsquo;re looking at price from directly above, seeing only the horizontal slice of time moving left to right across their screens. They see candles, moving averages, maybe some volume bars. They&rsquo;re trying to extract three-dimensional information from a two-dimensional projection.</p>
+<p>This is like a doctor trying to diagnose a fracture by only looking at an X-ray from one angle. You might see something, but you&rsquo;re missing critical structure that only becomes visible when you rotate your observation plane.</p>
+<h2 id="the-transverse-plane-price-time">The Transverse Plane: Price-Time<a hidden class="anchor" aria-hidden="true" href="#the-transverse-plane-price-time">#</a></h2>
+<p>This is the standard chart view. Price on the vertical axis, time on the horizontal. You&rsquo;re looking down at the market from above, watching it move through time like a river flowing past you.</p>
+<p>What you see in this plane:</p>
+<ul>
+<li>Trend direction and strength</li>
+<li>Support and resistance levels</li>
+<li>Pattern formations (heads and shoulders, triangles, channels)</li>
+<li>Moving average relationships</li>
+</ul>
+<p>What you miss:</p>
+<ul>
+<li>Volume distribution across price levels</li>
+<li>Order flow dynamics</li>
+<li>Depth of market structure</li>
+<li>The vertical dimension of liquidity</li>
+</ul>
+<p>Traders who only use this plane are essentially two-dimensional. They can see that price moved from 2000 to 2050, but they can&rsquo;t see how it moved, where the resistance actually was, or how much conviction was behind the move.</p>
+<h2 id="the-frontal-plane-price-volume">The Frontal Plane: Price-Volume<a hidden class="anchor" aria-hidden="true" href="#the-frontal-plane-price-volume">#</a></h2>
+<p>Rotate your observation ninety degrees. Now you&rsquo;re looking at the market face-on, with price still on the vertical axis but volume on the horizontal. This is the volume profile view, the market profile, the order book depth.</p>
+<p>What you see in this plane:</p>
+<ul>
+<li>Where the most trading activity has occurred (value areas)</li>
+<li>Zones of high and low liquidity</li>
+<li>Fair value ranges versus extremes</li>
+<li>Absorption and exhaustion patterns</li>
+</ul>
+<p>What you miss:</p>
+<ul>
+<li>When these structures formed</li>
+<li>The sequence of their development</li>
+<li>Whether they&rsquo;re fresh or stale</li>
+<li>The temporal momentum</li>
+</ul>
+<p>This plane shows you the market&rsquo;s vertical structure. You can see that most trading happened between 2020-2030, with thin volume above 2040. That tells you something completely different than just seeing price at 2045 on a time-based chart.</p>
+<p>But without the time dimension, you don&rsquo;t know if that thin area was crossed yesterday or three weeks ago. You&rsquo;ve gained depth at the cost of sequence.</p>
+<h2 id="the-sagittal-plane-time-volume">The Sagittal Plane: Time-Volume<a hidden class="anchor" aria-hidden="true" href="#the-sagittal-plane-time-volume">#</a></h2>
+<p>Turn again. Now you&rsquo;re looking at the market from the side, with time on the horizontal and volume on the vertical. This shows you the rhythm of market participation, the breathing pattern of liquidity.</p>
+<p>What you see in this plane:</p>
+<ul>
+<li>Volume expansion and contraction cycles</li>
+<li>Participation trends over time</li>
+<li>Climax and exhaustion signals</li>
+<li>The tempo of institutional involvement</li>
+</ul>
+<p>What you miss:</p>
+<ul>
+<li>Where in the price structure this volume occurred</li>
+<li>Whether volume was buying or selling pressure</li>
+<li>The vertical distribution of that activity</li>
+</ul>
+<p>This plane reveals whether the market is becoming more or less active, whether new participants are entering or existing ones are exiting. A price move to new highs on declining volume looks very different from one on expanding volume, but you need this side view to see it clearly.</p>
+<h2 id="the-three-dimensional-structure">The Three-Dimensional Structure<a hidden class="anchor" aria-hidden="true" href="#the-three-dimensional-structure">#</a></h2>
+<p>None of these planes alone tells you the complete story. Each one is a projection, a shadow of the actual three-dimensional price-time-volume structure. To really understand market behavior, you need to rotate between them, building a mental model that integrates all three perspectives.</p>
+<p>Consider a breakout scenario:</p>
+<p><strong>Transverse view (price-time):</strong> You see price breaking above a resistance level at 2040, candles pushing higher with momentum.</p>
+<p><strong>Frontal view (price-volume):</strong> You see that above 2040, there&rsquo;s almost no prior volume. This is untested territory, thin liquidity, potentially explosive or potentially fragile.</p>
+<p><strong>Sagittal view (time-volume):</strong> You see volume spiking massively on the breakout, much higher than the baseline of recent sessions.</p>
+<p>Now you have a three-dimensional picture: price is entering a low-liquidity zone with strong momentum and heavy participation. That suggests the move has conviction. The thin liquidity above means less resistance but also less support if it reverses. The volume spike indicates institutional involvement, not just retail FOMO.</p>
+<p>Without all three planes, you&rsquo;re making decisions based on incomplete information.</p>
+<h2 id="the-fourth-dimension-observer-position">The Fourth Dimension: Observer Position<a hidden class="anchor" aria-hidden="true" href="#the-fourth-dimension-observer-position">#</a></h2>
+<p>But there&rsquo;s a complication. Unlike medical imaging where the body stays still and the scanner moves around it, in markets you can&rsquo;t hold price constant while you rotate your observation angle. The market is moving while you&rsquo;re trying to measure it.</p>
+<p>This is the temporal dimension of your own observation. You exist at a specific moment in time, looking backward at historical structure and forward at potential futures. Your observation cone extends in both directions, but you&rsquo;re locked to the present moment at its tip.</p>
+<p>Every tick that passes, your position shifts. Old structure moves further into the past cone, potentially losing relevance. New structure emerges in the immediate present, potentially signaling a regime change. The three planes you&rsquo;re analyzing are themselves moving through a fourth dimension that you can&rsquo;t directly observe.</p>
+<p>This is why static support and resistance levels fail. Traders identify a price level that mattered three days ago (looking at the transverse plane) and assume it will matter today. But they&rsquo;re not accounting for the time decay of that structure. The volume that created that level might have completely rotated out. The participants who defended it might have closed their positions. The level exists in historical price-time space, but it may no longer exist in current price-volume-participation space.</p>
+<h2 id="regime-detection-across-planes">Regime Detection Across Planes<a hidden class="anchor" aria-hidden="true" href="#regime-detection-across-planes">#</a></h2>
+<p>Different market regimes reveal themselves in different planes:</p>
+<p><strong>Trending regimes</strong> are most visible in the transverse plane. You see clean directional movement, prices making higher highs or lower lows in sequence. But look at the frontal plane and you might see that the trend is developing through areas of thin volume, suggesting it&rsquo;s exploratory rather than grounded.</p>
+<p><strong>Range-bound regimes</strong> pop out in the frontal plane. You see dense volume clusters at the highs and lows of the range, showing where the market has established value boundaries. The transverse plane might look messy, choppy, difficult to trade. But the frontal plane shows clear structure.</p>
+<p><strong>Volatility regimes</strong> are clearest in the sagittal plane. Volume spikes accompanying price spikes, contraction periods where both volume and price movement compress. This temporal rhythm doesn&rsquo;t show up well in static price charts or volume profiles.</p>
+<p>A complete regime detection system needs to sample all three planes and look for coherence. When all three planes agree on the regime, you have high confidence. When they conflict, you have regime uncertainty, and that&rsquo;s when most traders get chopped up.</p>
+<h2 id="the-convergence-of-planes">The Convergence of Planes<a hidden class="anchor" aria-hidden="true" href="#the-convergence-of-planes">#</a></h2>
+<p>The most reliable trading signals occur when structure aligns across multiple planes simultaneously. This is the three-dimensional equivalent of the signal convergence discussed earlier with indicators.</p>
+<p>Imagine price approaching a level:</p>
+<ul>
+<li><strong>Transverse plane:</strong> Shows prior swing high, established resistance</li>
+<li><strong>Frontal plane:</strong> Shows high-volume node, significant past trading activity</li>
+<li><strong>Sagittal plane:</strong> Shows volume declining into the level, waning momentum</li>
+</ul>
+<p>All three planes are pointing at the same price zone for different structural reasons. This is multi-dimensional convergence. The level exists not just as a line on a chart, but as a volume-weighted, time-decayed structure with measurable participation characteristics.</p>
+<p>When a trade is based on all three planes confirming, it&rsquo;s not just betting on a line holding. It&rsquo;s betting on a three-dimensional structure that has temporal, volumetric, and price coherence. The probability is fundamentally different.</p>
+<h2 id="the-observational-toolkit">The Observational Toolkit<a hidden class="anchor" aria-hidden="true" href="#the-observational-toolkit">#</a></h2>
+<p>Most trading platforms only show one plane at a time. Flipping between a candlestick chart, a volume profile, and maybe a volume histogram requires mental rotation, trying to build the three-dimensional model internally.</p>
+<p>Advanced traders develop an integrated visualization. They can look at a single chart and simultaneously &ldquo;see&rdquo; all three planes overlaid. The price action isn&rsquo;t just a line moving through time. It&rsquo;s a volume-weighted trajectory moving through a structure that has both vertical (price) and horizontal (time) dimensions, with the thickness of the trajectory representing participation intensity.</p>
+<p>This is similar to how experienced radiologists can look at a 2D X-ray and immediately construct the 3D structure in their minds. They&rsquo;ve trained their visual system to decode the projection back into the original dimensions.</p>
+<p>The same capacity can be trained with price charts. But it requires deliberately rotating analytical perspective, forcing observation of the same market structure from different angles, building the mental habit of multi-plane integration.</p>
+<h2 id="the-trap-of-dimensional-reduction">The Trap of Dimensional Reduction<a hidden class="anchor" aria-hidden="true" href="#the-trap-of-dimensional-reduction">#</a></h2>
+<p>The reason most trading education fails is that it reduces multi-dimensional structure to simple rules in a single plane. &ldquo;Buy when price crosses above the 50-day moving average.&rdquo; That&rsquo;s a purely transverse-plane rule. It ignores volume, it ignores participation, it ignores the vertical structure entirely.</p>
+<p>Or &ldquo;Buy when price enters the value area low.&rdquo; That&rsquo;s a frontal-plane rule. It treats the value area as static, ignoring how much time has passed since it formed, ignoring whether volume is expanding or contracting.</p>
+<p>Any rule confined to a single observational plane is necessarily incomplete. It might work in specific market regimes where that plane happens to be dominant, but it will fail when the regime shifts and a different dimension becomes the primary driver.</p>
+<h2 id="building-the-full-model">Building the Full Model<a hidden class="anchor" aria-hidden="true" href="#building-the-full-model">#</a></h2>
+<p>The process of becoming a consistently profitable trader is largely about expanding observational dimensionality. The starting point is the transverse plane because that&rsquo;s what everyone shows first. Price charts, candlesticks, moving averages.</p>
+<p>Then volume enters the picture and the frontal plane gets incorporated. Volume profiles, order flow, market depth. Understanding deepens. Things that looked like random noise in the time-based chart suddenly have structure when viewed volumetrically.</p>
+<p>Then the temporal dimension of volume itself gets added, the sagittal plane. Participation rhythms, volume cycles, the breathing pattern of the market. Now exhaustion can be distinguished from continuation, climax from initiation.</p>
+<p>Finally, all three planes integrate into a single coherent model that can be rotated through depending on what the market is doing. No longer locked into one observational angle. Perspective can shift as needed, extracting whatever dimensional slice gives the clearest signal for the current regime.</p>
+<p>This is what it means to &ldquo;read&rdquo; the market. Not just looking at price. Reconstructing the full three-dimensional structure from multiple two-dimensional projections, then using that model to anticipate how the structure will evolve through the fourth dimension of time.</p>
+<h2 id="the-limit-of-observation">The Limit of Observation<a hidden class="anchor" aria-hidden="true" href="#the-limit-of-observation">#</a></h2>
+<p>But even with all three planes integrated, operation still occurs under fundamental constraints. The uncertainty principle still applies. The observer effect still matters. Market impact still grows with position size.</p>
+<p>Adding dimensions to observation doesn&rsquo;t remove the fundamental limitations. It just moves them to a higher level of abstraction. Instead of being uncertain about price, there&rsquo;s uncertainty about regime. Instead of one indicator being noisy, three-plane coherence can break down.</p>
+<p>The goal isn&rsquo;t to eliminate uncertainty. It&rsquo;s to operate at the highest dimensional level that capital and time horizon allow, accepting the residual uncertainty that remains as the cost of participation.</p>
+<p>Small accounts trade in fewer dimensions because they lack the capital to hold through the noise. Large accounts require more dimensions because their market impact forces them to think in terms of structural positioning rather than just price levels.</p>
+<p>The dimension operated in is determined by the binding constraint. For most traders, it&rsquo;s capital. They can&rsquo;t afford to wait for three-plane convergence because they need to trade more frequently to build the account. So they accept lower-dimensional signals with higher noise, paying the price in drawdown and win rate.</p>
+<p>This is another version of the expectancy-frequency tradeoff. Higher dimensional analysis gives better expectancy but lower frequency. Waiting for rarer, higher-quality setups. Lower dimensional analysis gives higher frequency but lower expectancy. Taking more trades on thinner evidence.</p>
+<p>The game is matching dimensional depth to capital base and time horizon. Trade the dimensions you can afford to wait for.</p>
+<hr>
+<p><em>This is part of an ongoing exploration of market structure and trading cognition. The dimensional framework provides a lens for understanding why different analytical approaches work in different regimes.</em></p>
+<h2 id="references">References<a hidden class="anchor" aria-hidden="true" href="#references">#</a></h2>
+<p>Anatomical planes concept adapted from: Kutcha, L. (CPT, CSCS). <a href="https://physiquedevelopment.com/planes-of-motion-sagittal-frontal-transverse/">&ldquo;Planes of Motion: Sagittal, Frontal, Transverse&rdquo;</a>. Physique Development.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/essencepartagee.github.io/tags/trading/">Trading</a></li>
+      <li><a href="http://localhost:1313/essencepartagee.github.io/tags/cognition/">Cognition</a></li>
+      <li><a href="http://localhost:1313/essencepartagee.github.io/tags/market-structure/">Market-Structure</a></li>
+      <li><a href="http://localhost:1313/essencepartagee.github.io/tags/dimensional-analysis/">Dimensional-Analysis</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/essencepartagee.github.io/">Theoretical Explorations</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
