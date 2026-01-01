@@ -4,6 +4,7 @@ draft = false
 title = 'The Toroidal Structure of Pretending: Internal-External Flow'
 description = 'Exploring how toroidal geometry describes the relationship between internal states and external presentation'
 tags = ['topology', 'consciousness', 'mathematics']
+categories = ['Theoretical Research']
 math = true
 +++
 

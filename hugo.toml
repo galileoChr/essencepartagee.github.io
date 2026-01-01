@@ -2,13 +2,60 @@ baseURL = 'https://galileochr.github.io/essencepartagee.github.io/'
 languageCode = 'en-us'
 title = 'Theoretical Explorations'
 theme = 'PaperMod'
+enableRobotsTXT = true
+enableGitInfo = true
+
+# Pagination
+paginate = 10
+
+# Sitemap configuration
+[sitemap]
+  changefreq = 'weekly'
+  filename = 'sitemap.xml'
+  priority = 0.5
 
 [params]
   description = 'Mathematical frameworks for understanding reality'
   author = 'Chris. M'
-  
+
   # Enable math
   math = true
 
+  # SEO
+  keywords = ['mathematics', 'topology', 'trading', 'quantitative-analysis', 'consciousness', 'research']
+
+  # Social sharing
+  [params.homeInfoParams]
+    Title = "Theoretical Explorations"
+    Content = "Research exploring mathematical frameworks, market microstructure, and consciousness through topology and quantitative analysis."
+
+  [[params.socialIcons]]
+    name = "rss"
+    url = "/essencepartagee.github.io/index.xml"
+
+  # Analytics (uncomment and add your ID when ready)
+  # googleAnalytics = "G-XXXXXXXXXX"
+
+  # SEO enhancements
+  [params.cover]
+    linkFullImages = true
+
+  [params.fuseOpts]
+    isCaseSensitive = false
+    shouldSort = true
+    location = 0
+    distance = 1000
+    threshold = 0.4
+    minMatchCharLength = 0
+    keys = ["title", "permalink", "summary", "content"]
+
 [markup.goldmark.renderer]
   unsafe = true
+
+# Outputs
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+# RSS Configuration
+[params.rss]
+  fullText = true

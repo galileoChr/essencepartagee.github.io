@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Topology on Theoretical Explorations</title>
-    <link>http://localhost:1313/essencepartagee.github.io/tags/topology/</link>
-    <description>Recent content in Topology on Theoretical Explorations</description>
+    <title>Theoretical Research on Theoretical Explorations</title>
+    <link>http://localhost:1313/essencepartagee.github.io/categories/theoretical-research/</link>
+    <description>Recent content in Theoretical Research on Theoretical Explorations</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 08 Dec 2025 01:07:42 -0400</lastBuildDate>
-    <atom:link href="http://localhost:1313/essencepartagee.github.io/tags/topology/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/essencepartagee.github.io/categories/theoretical-research/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Toroidal Structure of Pretending: Internal-External Flow</title>
       <link>http://localhost:1313/essencepartagee.github.io/posts/toroidal-consciousness/</link>
