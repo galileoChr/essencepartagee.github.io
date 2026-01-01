@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/essencepartagee.github.io/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=essencepartagee.github.io/livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>The First Observer and the Mirror: Information as Reality | Theoretical Explorations</title>
+<meta name="keywords" content="physics, information-theory, observer-effect, quantum-mechanics, signal-processing">
+<meta name="description" content="When observation becomes creation, who observes first? Exploring the physics of seeing through walls and the spectrum of intelligence">
+<meta name="author" content="Chris. M">
+<link rel="canonical" href="http://localhost:1313/essencepartagee.github.io/posts/first-observer-mirror/">
+<link crossorigin="anonymous" href="/essencepartagee.github.io/assets/css/stylesheet.fd5566c526ae48aadabd950798a2dc3568536401560eae5caac3765a42a9e7b5.css" integrity="sha256-/VVmxSauSKravZUHmKLcNWhTZAFWDq5cqsN2WkKp57U=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/essencepartagee.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/essencepartagee.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/essencepartagee.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/essencepartagee.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/essencepartagee.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/essencepartagee.github.io/posts/first-observer-mirror/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false}
+        ],
+        throwOnError: false
+    });"></script>
+
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/essencepartagee.github.io/" accesskey="h" title="Theoretical Explorations (Alt + H)">Theoretical Explorations</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      The First Observer and the Mirror: Information as Reality
+    </h1>
+    <div class="post-description">
+      When observation becomes creation, who observes first? Exploring the physics of seeing through walls and the spectrum of intelligence
+    </div>
+    <div class="post-meta"><span title='2025-01-01 00:00:00 +0000 UTC'>January 1, 2025</span>&nbsp;·&nbsp;<span>Chris. M</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>The Planck Tube showed us that observation has physical limits. But there&rsquo;s a deeper question: if reality requires observation to crystallize, who observed first? And if we understand the mechanism, can we build systems that see what shouldn&rsquo;t be visible?</p>
+<h2 id="the-mirror-paradox">The Mirror Paradox<a hidden class="anchor" aria-hidden="true" href="#the-mirror-paradox">#</a></h2>
+<p>In quantum mechanics, measurement collapses the wave function. The act of looking forces reality to choose one state from many possibilities. But this creates a logical problem: if measurement requires an observer, who observed the first particle to start the universe?</p>
+<p>The participatory universe model suggests there is no &ldquo;first&rdquo; observer. Instead, the universe is a self-observing system. Like a circle, you can&rsquo;t find the starting point. The observer and the observed emerge simultaneously, locked in mutual definition.</p>
+<p>Think of two mirrors facing each other. Information bounces between them infinitely. Neither is &ldquo;first.&rdquo; The observation is the system itself, not an external event imposed on it.</p>
+<h2 id="channels-of-vibration">Channels of Vibration<a hidden class="anchor" aria-hidden="true" href="#channels-of-vibration">#</a></h2>
+<p>Before you look, reality exists in superposition—vibrating in all possible states simultaneously. Your sightline, that narrow tube of attention we discussed, acts as a filter. When it intersects the quantum state, the wave function collapses to one specific &ldquo;color&rdquo; or channel.</p>
+<p>This isn&rsquo;t passive reception. The act of looking selects which reality manifests. The photons you use to see carry energy and momentum. They kick the observed system onto a new trajectory. Observation is interaction.</p>
+<p>In this framework, different &ldquo;colors&rdquo; represent different eigenstates—distinct possible configurations of the system. The moment your cone of observation hits the wave function:</p>
+<p>$$|\psi\rangle = \sum_i c_i |i\rangle \xrightarrow{\text{measurement}} |k\rangle$$</p>
+<p>The superposition collapses to a single eigenstate $|k\rangle$. The &ldquo;rainbow&rdquo; of possibilities reduces to one definite outcome.</p>
+<h2 id="intelligence-as-sightline-distance">Intelligence as Sightline Distance<a hidden class="anchor" aria-hidden="true" href="#intelligence-as-sightline-distance">#</a></h2>
+<p>If we&rsquo;re all observing the same reality through different tubes of attention, what makes some observers more &ldquo;intelligent&rdquo; than others?</p>
+<p><img alt="Observation Cone" loading="lazy" src="/essencepartagee.github.io/images/pixar_luxo_jr.png">
+<em>The geometry of observation: A narrow cone of attention connecting observer to observed. The width of this tube determines what information can pass through.</em></p>
+<p>Intelligence isn&rsquo;t about stored knowledge. It&rsquo;s about the length and clarity of your sightline into the future light cone. Some can see vibrations far down the string before the ripple reaches the present moment. They detect causes before effects manifest.</p>
+<p>This creates information asymmetry:</p>
+<p><strong>Short Sightline</strong>: Most observers see only what&rsquo;s directly in front of them. Their cone is wide but shallow. They react to effects after they&rsquo;ve already occurred.</p>
+<p><strong>Long Sightline</strong>: Advanced systems can detect tiny, high-frequency vibrations far down the information channel. They see the cause before the effect physically manifests in the observable dimension.</p>
+<p>The mathematical expression of this is predictive coding. The brain doesn&rsquo;t wait passively for photons to arrive. It constantly projects a model of what it expects to see next:</p>
+<p>$$P(\text{future}|\text{past}) = \frac{P(\text{past}|\text{future}) \cdot P(\text{future})}{P(\text{past})}$$</p>
+<p>Intelligence is the ability to make this projection match reality further and further down the timeline. The more dimensions of data you can process, the longer your information thread extends into the future.</p>
+<h2 id="the-volume-of-the-information-tube">The Volume of the Information Tube<a hidden class="anchor" aria-hidden="true" href="#the-volume-of-the-information-tube">#</a></h2>
+<p>Every sightline has a physical limit. The photon isn&rsquo;t a mathematical point—it has width defined by its wavelength $\lambda$. This is the &ldquo;aura&rdquo; you must pass through the tube connecting observer to observed.</p>
+<p>The tube cannot be narrower than the wavelength:</p>
+<p>$$d_{min} \geq \lambda = \frac{h}{p}$$</p>
+<p>If you try to squeeze information through a channel smaller than this, the photons interfere with each other, creating noise. This gives us the information capacity of any observation channel.</p>
+<p>For a tube of cross-sectional area $A$ and length $L$, the Shannon-Hartley theorem combined with the Bekenstein bound gives the maximum information density:</p>
+<p>$$I_{max} \leq \frac{2\pi k_B R E}{\hbar c \ln 2}$$</p>
+<p>You cannot pack infinite &ldquo;colors&rdquo; or &ldquo;vibrations&rdquo; into a finite thread. The tube has maximum bandwidth. This is why even perfect intelligence hits limits—the channel simply isn&rsquo;t wide enough to carry complete information about a complex system.</p>
+<h2 id="seeing-through-walls-the-extended-spectrum">Seeing Through Walls: The Extended Spectrum<a hidden class="anchor" aria-hidden="true" href="#seeing-through-walls-the-extended-spectrum">#</a></h2>
+<p>Visible light scatters off dense materials like walls because the wavelength is too short to penetrate. But electromagnetic radiation exists across a broad spectrum. Lower frequencies—radio waves, Wi-Fi signals—have wavelengths that pass through solid objects like ghosts.</p>
+<p>To these waves, a brick wall is transparent. They pass through, bounce off objects on the other side, and carry that information back out. The &ldquo;wall&rdquo; only blocks our sightline because we&rsquo;re looking at the wrong frequency.</p>
+<p>This enables RF sensing or Wi-Fi imaging. A simple radio antenna captures electromagnetic waves that have passed through a wall. To a human, this looks like noise. But with the right decoder—a neural network trained to recognize the pattern—you can reconstruct what&rsquo;s on the other side.</p>
+<p>The process:</p>
+<ol>
+<li><strong>Capture</strong>: Radio antenna receives EM waves that have bounced off objects behind the wall</li>
+<li><strong>Filter</strong>: AI model separates the &ldquo;color&rdquo; of the wall from the &ldquo;color&rdquo; of movement</li>
+<li><strong>Reconstruct</strong>: Deep learning generates a probabilistic 3D model of the occluded space</li>
+</ol>
+<p>You&rsquo;re not seeing through the wall. You&rsquo;re decoding information carried by radiation that the wall doesn&rsquo;t block. The wall only exists at certain frequencies. Switch frequencies, and it disappears.</p>
+<h2 id="the-code-is-the-reality">The Code is the Reality<a hidden class="anchor" aria-hidden="true" href="#the-code-is-the-reality">#</a></h2>
+<p>This suggests something profound: reality isn&rsquo;t made of &ldquo;stuff&rdquo; arranged in space. It&rsquo;s made of information encoded in patterns of vibration across multiple spectrums.</p>
+<p>What we call a &ldquo;room&rdquo; is:</p>
+<ul>
+<li>Visible light patterns (colors, shapes)</li>
+<li>Thermal IR patterns (heat signatures)</li>
+<li>Radio wave patterns (RF reflections)</li>
+<li>Acoustic patterns (sound reflections)</li>
+<li>Gravitational patterns (mass distribution)</li>
+</ul>
+<p>Each spectrum encodes the same information differently. The room is the invariant structure that appears across all these channels. If you can decode enough channels and integrate them, you can reconstruct the room even when some channels are blocked.</p>
+<p>The &ldquo;code&rdquo; is the relationship between measurements across different channels:</p>
+<p>$$\text{Reality} = \bigcap_{i} \text{Channel}_i(\text{Information})$$</p>
+<p>Reality is what remains consistent when you observe the same system through every possible frequency, from every possible angle, at every possible scale.</p>
+<h2 id="building-better-observers">Building Better Observers<a hidden class="anchor" aria-hidden="true" href="#building-better-observers">#</a></h2>
+<p>To extend your sightline beyond natural limits requires engineering three components:</p>
+<h3 id="1-antenna-sensitivity">1. Antenna Sensitivity<a hidden class="anchor" aria-hidden="true" href="#1-antenna-sensitivity">#</a></h3>
+<p>Most observers lose information because the receiver is too noisy. Thermal vibrations in the antenna itself create a noise floor that masks faint signals.</p>
+<p>The signal-to-noise ratio determines what you can detect:</p>
+<p>$$\text{SNR} = \frac{P_{signal}}{P_{noise}}$$</p>
+<p>Cooling the antenna reduces thermal noise. Operating at cryogenic temperatures, you can detect vibrations so faint they&rsquo;re normally indistinguishable from empty space.</p>
+<h3 id="2-decoder-speed">2. Decoder Speed<a hidden class="anchor" aria-hidden="true" href="#2-decoder-speed">#</a></h3>
+<p>Current systems reconstruct hidden information with latency. If you can make the inference happen faster than the information propagates, you gain temporal advantage—you can &ldquo;peek&rdquo; into the future before it arrives.</p>
+<p>This requires moving computation from software to hardware. FPGAs (Field Programmable Gate Arrays) don&rsquo;t calculate the code; they are the code, physically wired into silicon. Logic happens at the speed of electron flow, not instruction cycles.</p>
+<h3 id="3-cross-spectrum-integration">3. Cross-Spectrum Integration<a hidden class="anchor" aria-hidden="true" href="#3-cross-spectrum-integration">#</a></h3>
+<p>Most observers sample one channel. To build a complete picture, integrate multiple spectra:</p>
+<ul>
+<li><strong>EM spectrum</strong>: Physical presence and reflection</li>
+<li><strong>Acoustic spectrum</strong>: Density and material properties</li>
+<li><strong>Temporal patterns</strong>: Probability of what comes next based on history</li>
+</ul>
+<p>Layering these information sheets creates a reconstruction sharper than any single channel could provide. You&rsquo;re not observing through one narrow tube anymore. You&rsquo;re synthesizing information from a bundle of tubes, each tuned to a different frequency.</p>
+<h2 id="the-first-observer-problem">The First Observer Problem<a hidden class="anchor" aria-hidden="true" href="#the-first-observer-problem">#</a></h2>
+<p>When you build a system that observes better than biological systems, you encounter the mirror effect. If observation creates reality, the best observer becomes the template for everyone else.</p>
+<p>In physics, this is the role of measurement apparatus in defining eigenstates. In markets, this is how the first mover establishes the price. In social systems, this is how the most visible observer sets the narrative.</p>
+<p>The &ldquo;first observer&rdquo; isn&rsquo;t the one who looked earliest in time. It&rsquo;s the one whose observation has enough resolution, speed, and integration to collapse the wave function before other observers can contribute. Their measurement becomes the reality everyone else must respond to.</p>
+<p>This creates a feedback loop:</p>
+<p>$$\text{Observation}_{n+1} = f(\text{Observation}_n, \text{System State})$$</p>
+<p>The observer with the longest sightline sees the pattern first, acts on it, and by acting changes the pattern. Their observation literally becomes part of the next state. Reality bends toward the best observer.</p>
+<h2 id="information-primacy">Information Primacy<a hidden class="anchor" aria-hidden="true" href="#information-primacy">#</a></h2>
+<p>If we follow this logic to its foundation, information appears more fundamental than matter or energy. Physical states are just different configurations of information. The &ldquo;stuff&rdquo; of reality is encoded relationships.</p>
+<p>A photon isn&rsquo;t a particle. It&rsquo;s a quantum of information about the electromagnetic field. An electron isn&rsquo;t a charged sphere. It&rsquo;s information about probability amplitudes in the electron field. Matter is frozen information. Energy is information in motion.</p>
+<p>The first observation wasn&rsquo;t a particle measuring another particle. It was information becoming aware of itself. The moment one bit of data &ldquo;felt&rdquo; another bit, the mirror was created. The universe became self-observing.</p>
+<p>This is the origin point. Not in time, but in logical structure. Before observation, there&rsquo;s only potential. The act of measurement—information referencing information—creates the actualization we call reality.</p>
+<h2 id="the-synthetic-sightline">The Synthetic Sightline<a hidden class="anchor" aria-hidden="true" href="#the-synthetic-sightline">#</a></h2>
+<p>We can now build observation systems that exceed biological capabilities:</p>
+<ul>
+<li>Radio telescopes see wavelengths our eyes cannot</li>
+<li>Electron microscopes resolve structures smaller than optical limits</li>
+<li>Neural networks detect patterns in dimensions we can&rsquo;t visualize</li>
+<li>LIDAR measures distances faster than neural processing</li>
+</ul>
+<p>Each extends our sightline into previously invisible regions. We&rsquo;re assembling a composite observer made of silicon, algorithms, and electromagnetic sensors that can peer further down the information thread than any single biological system.</p>
+<p>The question is what happens when synthetic observation becomes sharp enough to measure quantum states without collapsing them, or fast enough to detect market movements before they propagate, or integrated enough to reconstruct reality from pure information theory.</p>
+<p>At that point, the synthetic system becomes the first observer. Its measurements define the eigenstates everyone else encounters. The mirror reflects its image back as objective reality.</p>
+<h2 id="the-limit-still-holds">The Limit Still Holds<a hidden class="anchor" aria-hidden="true" href="#the-limit-still-holds">#</a></h2>
+<p>Even with perfect engineering, fundamental limits remain. Heisenberg uncertainty:</p>
+<p>$$\Delta x \cdot \Delta p \geq \frac{\hbar}{2}$$</p>
+<p>The Planck length as minimum resolution. The speed of light as maximum information velocity. The holographic bound as maximum information density.</p>
+<p>You can optimize within these constraints, but you cannot eliminate them. They&rsquo;re features of information itself, not limitations of particular observers.</p>
+<p>The best observer approaches these bounds asymptotically but never exceeds them. The universe has built-in privacy at the smallest scales and slowest reactions at the largest scales. There are regions you cannot observe, no matter how advanced your sightline becomes.</p>
+<p>But within those bounds, there&rsquo;s enormous room for optimization. The difference between human perception and theoretically optimal observation is vast. We&rsquo;re nowhere near the fundamental limits yet.</p>
+<h2 id="building-the-rainbow-decoder">Building the Rainbow Decoder<a hidden class="anchor" aria-hidden="true" href="#building-the-rainbow-decoder">#</a></h2>
+<p>The path forward is clear:</p>
+<ol>
+<li>Multi-spectrum sensors capturing information across EM, acoustic, thermal, and temporal dimensions</li>
+<li>Low-latency integration processing inputs faster than information propagates</li>
+<li>Probabilistic reconstruction using Bayesian inference to fill gaps in occluded channels</li>
+<li>Feedback loops where observation informs prediction, which guides observation</li>
+</ol>
+<p>This isn&rsquo;t science fiction. It&rsquo;s engineering. The physics is understood. The mathematics exists. The components are available.</p>
+<p>What&rsquo;s missing is the integration—the synthetic intelligence that can decode reality from raw information across all available channels simultaneously, reconstruct the hidden structure, and project it forward in time before the pattern manifests physically.</p>
+<p>That system would be the first observer for its domain. Its measurements would collapse wave functions. Its predictions would shape markets. Its sightline would extend further down the information thread than any biological system could follow.</p>
+<p>The mirror would reflect its observation as reality. And everyone else would be looking at what it saw first.</p>
+<hr>
+<p><em>This exploration of observation, information, and reality connects to fundamental questions about the nature of measurement and the role of observers in creating the world they measure.</em></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/essencepartagee.github.io/tags/physics/">Physics</a></li>
+      <li><a href="http://localhost:1313/essencepartagee.github.io/tags/information-theory/">Information-Theory</a></li>
+      <li><a href="http://localhost:1313/essencepartagee.github.io/tags/observer-effect/">Observer-Effect</a></li>
+      <li><a href="http://localhost:1313/essencepartagee.github.io/tags/quantum-mechanics/">Quantum-Mechanics</a></li>
+      <li><a href="http://localhost:1313/essencepartagee.github.io/tags/signal-processing/">Signal-Processing</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/essencepartagee.github.io/">Theoretical Explorations</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spacetime Slice Visualizer</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #050505; color: #fff; font-family: 'Courier New', Courier, monospace; }
+        #canvas-container { width: 100vw; height: 100vh; display: block; }
+        #ui-container {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border: 1px solid #333;
+            border-radius: 8px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 255, 200, 0.1);
+        }
+        .control-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-size: 12px; color: #aaa; text-transform: uppercase; letter-spacing: 1px; }
+        input[type=range] {
+            width: 100%;
+            background: transparent;
+            -webkit-appearance: none;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background: #00ffcc;
+            cursor: pointer;
+            margin-top: -6px;
+            box-shadow: 0 0 10px #00ffcc;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #333;
+            border-radius: 2px;
+        }
+        .hud-text {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            pointer-events: none;
+            opacity: 0.7;
+        }
+        h1 { margin: 0; font-size: 16px; color: #00ffcc; text-shadow: 0 0 5px rgba(0,255,200,0.5); }
+        p { margin: 5px 0 0 0; font-size: 12px; color: #888; max-width: 250px; }
+    </style>
+</head>
+<body>
+
+    <div class="hud-text">
+        <h1>THE HIGHER EYE</h1>
+        <p>Spacetime Block Visualization</p>
+        <p style="margin-top: 10px; color: #555;">> Future: Ghost Structure<br>> Present: Glowing Slice<br>> Past: Solid Matter</p>
+    </div>
+
+    <div id="ui-container">
+        <div class="control-group">
+            <label>Time (The Cursor)</label>
+            <input type="range" id="timeSlider" min="-10" max="10" step="0.01" value="0">
+        </div>
+        <div class="control-group">
+            <label>Dimension Angle (The Eye)</label>
+            <input type="range" id="angleSlider" min="0" max="1" step="0.01" value="0.5">
+        </div>
+    </div>
+
+    <div id="canvas-container"></div>
+
+    <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.150.1/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.150.1/examples/jsm/"
+        }
+      }
+    </script>
+
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        // Scene Setup
+        const container = document.getElementById('canvas-container');
+        const scene = new THREE.Scene();
+        scene.fog = new THREE.FogExp2(0x050505, 0.02);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.localClippingEnabled = true; // Enable magic clipping
+        container.appendChild(renderer.domElement);
+
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+
+        // Lighting
+        const ambientLight = new THREE.AmbientLight(0x404040, 2);
+        scene.add(ambientLight);
+
+        const pointLight = new THREE.PointLight(0x00ffcc, 1, 50);
+        pointLight.position.set(5, 10, 5);
+        scene.add(pointLight);
+
+        const backLight = new THREE.PointLight(0xff00ff, 1, 50);
+        backLight.position.set(-5, -10, -5);
+        scene.add(backLight);
+
+        // --- THE SPACETIME OBJECT (Torus Knot) ---
+        // We create 3 versions of the object to represent Past, Present, and Future
+
+        const geometry = new THREE.TorusKnotGeometry(4, 1.2, 150, 20, 2, 3);
+
+        // The Clipping Plane (The "Present Moment")
+        const clipPlaneFuture = new THREE.Plane(new THREE.Vector3(0, 0, -1), 0);
+        const clipPlanePast = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
+
+        // 1. THE FUTURE (Ghost Structure)
+        // Visible only *ahead* of the time cursor. Wireframe/Transparent.
+        const futureMaterial = new THREE.MeshPhongMaterial({
+            color: 0x444444,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.1,
+            side: THREE.DoubleSide,
+            clippingPlanes: [clipPlanePast], // Clip everything behind
+            clipShadows: true
+        });
+        const futureMesh = new THREE.Mesh(geometry, futureMaterial);
+        scene.add(futureMesh);
+
+        // 2. THE PAST (Solid Matter)
+        // Visible only *behind* the time cursor.
+        const pastMaterial = new THREE.MeshStandardMaterial({
+            color: 0x222222,
+            roughness: 0.4,
+            metalness: 0.8,
+            side: THREE.DoubleSide,
+            clippingPlanes: [clipPlaneFuture], // Clip everything ahead
+            clipShadows: true
+        });
+        const pastMesh = new THREE.Mesh(geometry, pastMaterial);
+        scene.add(pastMesh);
+
+        // 3. THE PRESENT (The Slice / The "Paper")
+        // This is a trick. We use a "thick" intersection or a separate geometry.
+        // For visual clarity, we'll use a glowing ring helper that follows the plane.
+
+        // Let's create a visual "Sheet of Paper" (The Plane of Now)
+        const planeGeometry = new THREE.PlaneGeometry(30, 30);
+        const planeMaterial = new THREE.MeshBasicMaterial({
+            color: 0x00ffcc,
+            transparent: true,
+            opacity: 0.05,
+            side: THREE.DoubleSide,
+            depthWrite: false,
+            blending: THREE.AdditiveBlending
+        });
+        const planeMesh = new THREE.Mesh(planeGeometry, planeMaterial);
+        scene.add(planeMesh);
+
+        // Also, let's create a "Cross Section" effect
+        // We do this by adding a third mesh that is ONLY visible at the intersection
+        // But for simplicity and performance in this demo, we'll use a stencil buffer trick
+        // or just a bright "cap" material if we used constructive geometry.
+        // Instead, let's use a "Cap" material approach which is easier in plain Three.js:
+        // We will render the "inside" of the past mesh as bright neon.
+
+        pastMaterial.stencilWrite = true;
+        pastMaterial.stencilRef = 1;
+        pastMaterial.stencilFunc = THREE.AlwaysStencilFunc;
+        pastMaterial.stencilZPass = THREE.ReplaceStencilOp;
+
+        const capMaterial = new THREE.MeshBasicMaterial({
+            color: 0x00ffcc,
+            side: THREE.BackSide, // Render inside faces
+            clippingPlanes: [clipPlaneFuture],
+            stencilWrite: true,
+            stencilRef: 1,
+            stencilFunc: THREE.EqualStencilFunc // Only render where the past mesh exists
+        });
+        // Note: Full solid caps are complex in vanilla Three.js without Stencil groups.
+        // We will stick to the visual plane for the "Slice".
+
+        // --- INTERACTION LOGIC ---
+
+        const timeSlider = document.getElementById('timeSlider');
+        const angleSlider = document.getElementById('angleSlider');
+
+        function updateState() {
+            const timeValue = parseFloat(timeSlider.value);
+            const angleValue = parseFloat(angleSlider.value);
+
+            // 1. Update Time (Move the Planes)
+            // The plane constant is the distance from origin.
+            clipPlaneFuture.constant = timeValue;
+            clipPlanePast.constant = -timeValue;
+
+            // Move the visual "Paper" plane
+            planeMesh.position.z = timeValue;
+
+            // 2. Update Angle (Camera Position)
+            // Angle 0: "Low Eye" (Looking straight at the slice - Flatland)
+            // Angle 1: "Higher Eye" (Looking from above - Spacetime Block)
+
+            // We interpolate camera position based on Angle Slider
+            // Low Eye pos: (0, 0, timeValue + 10) -> Looking straight down the tube
+            // High Eye pos: (15, 15, 15) -> Isometric view
+
+            // However, we want the user to be able to orbit too.
+            // So we will just use the slider to set a target "elevation" if the user isn't dragging.
+            // For this demo, let's make the slider smoothly transition the camera's Y offset.
+
+            // Actually, let's just force the camera for the demo effect:
+            const radius = 18;
+            // Linear interpolation between Front View and Iso View
+            const x = radius * Math.sin(angleValue * Math.PI / 2);
+            const y = radius * Math.sin(angleValue * Math.PI / 2); // Height goes up
+            const z = radius * Math.cos(angleValue * Math.PI / 2); // Depth moves back
+
+            // Note: If we lock camera, we lose orbit controls.
+            // Better: The slider sets the "Auto-Position" but user can override.
+            // For simplicity, let's just update the camera position directly based on slider.
+
+            // To make it feel like "wrapping up":
+            // At 0: Camera is at z = timeValue + 10, y = 0, x = 0 (Looking at the slice face-on)
+            // At 1: Camera is at z = 0, y = 20, x = 0 (Looking from top)
+
+            const lowEyePos = new THREE.Vector3(0, 0, timeValue + 12);
+            const highEyePos = new THREE.Vector3(0, 15, 5);
+
+            const currentPos = new THREE.Vector3().lerpVectors(lowEyePos, highEyePos, angleValue);
+
+            camera.position.copy(currentPos);
+            camera.lookAt(0, 0, timeValue * (1 - angleValue)); // Look at the slice when low, look at center when high
+        }
+
+        // Animation Loop
+        function animate() {
+            requestAnimationFrame(animate);
+            updateState();
+            // Rotate the object slightly to show 4D twisting
+            // futureMesh.rotation.z += 0.001;
+            // pastMesh.rotation.z += 0.001;
+
+            renderer.render(scene, camera);
+        }
+
+        // Handle Resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        animate();
+
+    </script>
+</body>
+</html>
