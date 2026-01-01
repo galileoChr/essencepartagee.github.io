@@ -30,31 +30,31 @@
       <description></description>
     </item>
     <item>
-      <title>Cognition</title>
-      <link>http://localhost:1313/essencepartagee.github.io/tags/cognition/</link>
+      <title>Information-Theory</title>
+      <link>http://localhost:1313/essencepartagee.github.io/tags/information-theory/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/essencepartagee.github.io/tags/cognition/</guid>
+      <guid>http://localhost:1313/essencepartagee.github.io/tags/information-theory/</guid>
       <description></description>
     </item>
     <item>
-      <title>Dimensional-Analysis</title>
-      <link>http://localhost:1313/essencepartagee.github.io/tags/dimensional-analysis/</link>
+      <title>Observation</title>
+      <link>http://localhost:1313/essencepartagee.github.io/tags/observation/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/essencepartagee.github.io/tags/dimensional-analysis/</guid>
+      <guid>http://localhost:1313/essencepartagee.github.io/tags/observation/</guid>
       <description></description>
     </item>
     <item>
-      <title>Market-Structure</title>
-      <link>http://localhost:1313/essencepartagee.github.io/tags/market-structure/</link>
+      <title>Physics</title>
+      <link>http://localhost:1313/essencepartagee.github.io/tags/physics/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/essencepartagee.github.io/tags/market-structure/</guid>
+      <guid>http://localhost:1313/essencepartagee.github.io/tags/physics/</guid>
       <description></description>
     </item>
     <item>
-      <title>Trading</title>
-      <link>http://localhost:1313/essencepartagee.github.io/tags/trading/</link>
+      <title>Quantum-Mechanics</title>
+      <link>http://localhost:1313/essencepartagee.github.io/tags/quantum-mechanics/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/essencepartagee.github.io/tags/trading/</guid>
+      <guid>http://localhost:1313/essencepartagee.github.io/tags/quantum-mechanics/</guid>
       <description></description>
     </item>
     <item>
@@ -83,6 +83,13 @@
       <link>http://localhost:1313/essencepartagee.github.io/tags/quantitative-analysis/</link>
       <pubDate>Sun, 29 Dec 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/essencepartagee.github.io/tags/quantitative-analysis/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Trading</title>
+      <link>http://localhost:1313/essencepartagee.github.io/tags/trading/</link>
+      <pubDate>Sun, 29 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/essencepartagee.github.io/tags/trading/</guid>
       <description></description>
     </item>
   </channel>

@@ -34,6 +34,29 @@ enableGitInfo = true
     name = "rss"
     url = "/essencepartagee.github.io/index.xml"
 
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/galileoChr"
+
+  # Enable sharing buttons
+  [params.ShareButtons]
+    enable = true
+
+  # Comments configuration (using Giscus - GitHub Discussions based)
+  [params.comments]
+    enable = true
+    provider = "giscus"
+    [params.comments.giscus]
+      # You'll need to set these up at https://giscus.app/
+      # repo = "galileoChr/essencepartagee.github.io"
+      # repoID = "YOUR_REPO_ID"
+      # category = "General"
+      # categoryID = "YOUR_CATEGORY_ID"
+      # mapping = "pathname"
+      # theme = "preferred_color_scheme"
+      # lang = "en"
+      # For now, comments are configured but need setup
+
   # Analytics (uncomment and add your ID when ready)
   # googleAnalytics = "G-XXXXXXXXXX"
 

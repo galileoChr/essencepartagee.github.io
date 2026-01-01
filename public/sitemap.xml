@@ -47,33 +47,28 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/essencepartagee.github.io/tags/cognition/</loc>
-    <lastmod>2025-12-31T22:48:30-04:00</lastmod>
+    <loc>http://localhost:1313/essencepartagee.github.io/tags/information-theory/</loc>
+    <lastmod>2025-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/essencepartagee.github.io/tags/dimensional-analysis/</loc>
-    <lastmod>2025-12-31T22:48:30-04:00</lastmod>
+    <loc>http://localhost:1313/essencepartagee.github.io/tags/observation/</loc>
+    <lastmod>2025-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/essencepartagee.github.io/tags/market-structure/</loc>
-    <lastmod>2025-12-31T22:48:30-04:00</lastmod>
+    <loc>http://localhost:1313/essencepartagee.github.io/tags/physics/</loc>
+    <lastmod>2025-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/essencepartagee.github.io/posts/three-planes-market-observation/</loc>
-    <lastmod>2025-12-31T22:48:30-04:00</lastmod>
+    <loc>http://localhost:1313/essencepartagee.github.io/tags/quantum-mechanics/</loc>
+    <lastmod>2025-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/essencepartagee.github.io/tags/trading/</loc>
-    <lastmod>2025-12-31T22:48:30-04:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://localhost:1313/essencepartagee.github.io/categories/trading-research/</loc>
-    <lastmod>2025-12-31T22:48:30-04:00</lastmod>
+    <loc>http://localhost:1313/essencepartagee.github.io/posts/planck-tube-observation/</loc>
+    <lastmod>2025-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -99,6 +94,20 @@
   </url><url>
     <loc>http://localhost:1313/essencepartagee.github.io/posts/market-microstructure-journey/</loc>
     <lastmod>2025-12-29T01:27:37-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/essencepartagee.github.io/tags/trading/</loc>
+    <lastmod>2025-12-29T01:27:37-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/essencepartagee.github.io/categories/trading-research/</loc>
+    <lastmod>2025-12-29T01:27:37-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/essencepartagee.github.io/about/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
